@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gestión de Tareas</title>
+  <!-- Aqui conectamos el archivo CSS que da estilo a la pagina -->
+  <link rel="stylesheet" href="../css/inicio.css" />
+  <link rel="stylesheet" href="../css/fondo.css" />
+</head>
+
+<body>
+  <!-- Esta seccion crea el fondo animado con figuras flotando -->
+  <div class="hero-bg-animation">
+    <div class="floating-shape shape-1"></div>
+    <div class="floating-shape shape-2"></div>
+    <div class="floating-shape shape-3"></div>
+
+    <div class="geo-shape geo-1"></div>
+    <div class="geo-shape geo-2"></div>
+
+    <!-- Estas son particulas pequeñas que se mueven en el fondo -->
+    <div class="particles">
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
+    </div>
+  </div>
+
+  <!-- Aqui empieza la barra de navegacion superior -->
+  <nav id="navbar">
+    <div class="nav-container">
+
+      <!-- Logo de la pagina -->
+      <a href="inicio.html" class="logo">
+        <div class="logo-icon">📚</div>
+        <div class="logo-text">Gestión de Tareas</div>
+      </a>
+
+      <!-- Enlaces principales de navegacion -->
+      <ul class="nav-links">
+        <li><a href="inicio.html" class="active">Inicio</a></li>
+        <li><a href="acerca.html">Acerca</a></li>
+        <li><a href="mensajes.html">Mensajes</a></li>
+        <li><a href="tareas.html">Tareas</a></li>
+
+        <!-- Boton para cerrar sesion -->
+        <button id="logout-button" title="Cerrar Sesión"></button>
+      </ul>
+
+      <!-- Boton que aparece en moviles para abrir menu -->
+      <div class="mobile-menu-btn" id="mobileMenuBtn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <!-- Menu que aparece en pantallas pequeñas -->
+    <div class="mobile-nav" id="mobileNav">
+      <ul>
+        <li><a href="inicio.html">Inicio</a></li>
+        <li><a href="acerca.html">Acerca</a></li>
+        <li><a href="mensajes.html">mensajes</a></li>
+        <li><a href="tareas.html">Tareas</a></li>
+
+        <!-- Boton de cerrar sesion en modo movil -->
+        <li><button class="mobile-logout" onclick="window.location.href='#'">Cerrar Sesión 🚪</button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Seccion de bienvenida del perfil del usuario -->
+  <section id="about" class="fade-in">
+    <div class="container">
+      <div class="section-header">
+
+        <!-- Titulo principal -->
+        <h2 class="section-title">Bienvenido a mi Perfil 😀</h2>
+
+        <!-- Texto pequeño debajo del titulo -->
+        <p class="section-subtitle">Para que conozcas un poco más de mí.</p>
+      </div>
+
+      <!-- Contenedor principal de la informacion del perfil -->
+      <div class="about-content">
+        <div class="about-intro">
+
+          <!-- Contenedor de la imagen del usuario -->
+          <div class="about-image-wrapper">
+            <img src="../foto.png" alt="Foto de Perfil" class="profile-pic">
+          </div>
+
+          <!-- Texto de presentacion -->
+          <div class="about-text">
+            <h3 id="saludo-perfil">¡Hola, soy Juanito Alimaña! 👋</h3>
+
+            <p>
+              Tengo 15 años y soy un estudiante de secundaria apasionado por la tecnología. Este es mi espacio personal,
+              el centro de comando donde organizo mi vida escolar para no perder de vista ninguna entrega.
+            </p>
+
+            <p>
+              Aqui gestiono desde mis proyectos de ciencias hasta mis practicas de futbol. Me gusta mantener mis tareas
+              en orden para asegurar buenas calificaciones y tener tiempo libre los fines de semana para mis videojuegos
+              favoritos. Bienvenido a mi perfil!
+            </p>
+          </div>
+        </div>
+
+        <!-- Tarjetas con informacion editable del usuario -->
+        <div class="about-cards">
+
+          <!-- Tarjeta del objetivo del usuario -->
+          <div class="about-card">
+            <h4>🎯 Mi Objetivo</h4>
+
+            <!-- Texto que se puede modificar con el boton de abajo -->
+            <p id="text-objetivo">Mantener una visión 360° de todas mis materias. Mi meta es reducir el estrés y
+              asegurar que nunca más falle en una fecha de entrega.</p>
+
+            <!-- Parte que permite editar el objetivo -->
+            <div class="edit-container">
+              <input type="text" id="input-objetivo" class="edit-input" placeholder="Escribe un nuevo objetivo...">
+              <button class="edit-btn" onclick="actualizarTexto('input-objetivo', 'text-objetivo')">
+                ⬆
+              </button>
+            </div>
+          </div>
+
+          <!-- Tarjeta de estrategia -->
+          <div class="about-card">
+            <h4>💡 Mi Estrategia</h4>
+
+            <!-- Texto editable -->
+            <p id="text-estrategia">Usar este sistema para liberar mi mente. La mejor estrategia es tener mis tareas en
+              orden para dedicar más tiempo a mis videojuegos.</p>
+
+            <!-- Input para editar la estrategia -->
+            <div class="edit-container">
+              <input type="text" id="input-estrategia" class="edit-input" placeholder="Escribe tu nueva estrategia...">
+              <button class="edit-btn" onclick="actualizarTexto('input-estrategia', 'text-estrategia')">
+                ⬆
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Archivos JavaScript que hacen funcionar la navegacion y el cierre de sesion -->
+  <script src="../js/navegacion.js"></script>
+  <script src="../js/inicio.js"></script>
+  <script src="../js/cerrarSesion.js"></script>
+
+</body>
+
+</html>

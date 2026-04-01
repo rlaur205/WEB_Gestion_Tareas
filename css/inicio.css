@@ -1,0 +1,202 @@
+/* Este contenedor lo uso para que el contenido no se vea muy ancho y quede centrado en la pantalla */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Esta es la seccion principal donde muestro toda la info del perfil */
+#about {
+  padding: 80px 0;
+  color: #ffffff;
+  background-color: transparent;
+}
+
+/* Este bloque es el que contiene el titulo y el subtitulo de la seccion */
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+/* Aqui le doy estilo al titulo grande de la seccion */
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+/* Este texto es el subtitulo que va debajo del titulo principal */
+.section-subtitle {
+  font-size: 1.1rem;
+  color: #a0a0a0;
+}
+
+/* Esta parte acomoda la foto a la izquierda y el texto a la derecha */
+.about-intro {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  margin-bottom: 60px;
+}
+
+/* Este contenedor es para la foto redonda del perfil */
+.about-image-wrapper {
+  flex: 0 0 350px;
+  height: 350px;
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Aqui ajusto la foto para que siempre llene el circulo sin deformarse */
+.profile-pic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  /* Aqui muevo ligeramente la posicion de la foto por si quiero centrarla mejor */
+  object-position: center 1%;
+
+  /* Tambien redondeo la imagen interna para que quede circular */
+  border-radius: 50%;
+}
+
+/* Este bloque es todo el texto que esta al lado de la foto */
+.about-text {
+  flex: 1;
+}
+
+/* Este es el saludo tipo "Hola soy Juanito" */
+.about-text h3 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+/* Este es el estilo del parrafo donde el usuario se describe */
+.about-text p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #d1d1d1;
+  margin-bottom: 15px;
+}
+
+/* Aqui acomodo las tarjetas que van debajo: objetivo y estrategia */
+.about-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+/* Cada tarjeta donde pongo informacion editable */
+.about-card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;
+}
+
+/* Cuando paso el mouse, la tarjeta sube un poquito */
+.about-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Estilo del titulo de cada tarjeta (Objetivo/Estrategia) */
+.about-card h4 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Estilo del texto dentro de las tarjetas */
+.about-card p {
+  color: #b0b0b0;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* Esta parte hace que todo se acomode verticalmente en pantallas pequenas */
+@media (max-width: 768px) {
+  .about-intro {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-image-wrapper {
+    width: 250px;
+    height: 250px;
+    flex: none;
+  }
+
+  /* Las tarjetas ahora van una debajo de la otra */
+  .about-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Este contenedor es donde pongo el input y el boton para editar el texto */
+.edit-container {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Estilos del input donde el usuario escribe su nuevo objetivo/estrategia */
+.edit-input {
+  flex: 1;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 8px 12px;
+  color: #fff;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+/* Color del texto cuando no se ha escrito nada en el input */
+.edit-input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* Cuando el usuario esta escribiendo, el borde se pone morado */
+.edit-input:focus {
+  border-color: #667eea;
+}
+
+/* Este es el boton redondito que guarda el texto editado */
+.edit-btn {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Cuando paso el mouse el boton se levanta un poquito */
+.edit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(118, 75, 162, 0.4);
+}
+
+/* Cuando doy click el boton vuelve a su posicion normal */
+.edit-btn:active {
+  transform: translateY(0);
+}

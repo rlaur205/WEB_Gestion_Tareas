@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestión de Tareas</title>
+
+    <!-- CSS principal para la página de tareas -->
+    <link rel="stylesheet" href="../css/tareas.css" />
+
+    <!-- Fondo animado compartido por varias páginas -->
+    <link rel="stylesheet" href="../css/fondo.css" />
+</head>
+
+<body>
+    <!-- Contenedor del fondo animado (formas flotantes, partículas, etc.) -->
+    <div class="hero-bg-animation">
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+        <div class="floating-shape shape-3"></div>
+
+        <div class="geo-shape geo-1"></div>
+        <div class="geo-shape geo-2"></div>
+
+        <!-- Partículas animadas -->
+        <div class="particles">
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+        </div>
+    </div>
+
+    <!-- Barra de navegación superior -->
+    <nav id="navbar">
+        <div class="nav-container">
+
+            <!-- Logo y enlace al inicio -->
+            <a href="tareas.html" class="logo">
+                <div class="logo-icon">📚</div>
+                <div class="logo-text">Gestión de Tareas</div>
+            </a>
+
+            <!-- Enlaces del menú principal -->
+            <ul class="nav-links">
+                <li><a href="inicio.html">Inicio</a></li>
+                <li><a href="acerca.html">Acerca</a></li>
+                <li><a href="mensajes.html">Mensajes</a></li>
+                <li><a href="tareas.html" class="active">Tareas</a></li>
+
+                <!-- Botón de cerrar sesión -->
+                <button id="logout-button" title="Cerrar Sesión"></button>
+            </ul>
+
+            <!-- Botón hamburguesa (solo visible en móvil) -->
+            <div class="mobile-menu-btn" id="mobileMenuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <!-- Menú desplegable en móvil -->
+        <div class="mobile-nav" id="mobileNav">
+            <ul>
+                <li><a href="inicio.html">Inicio</a></li>
+                <li><a href="acerca.html">Acerca</a></li>
+                <li><a href="mensajes.html">Mensajes</a></li>
+                <li><a href="tareas.html">Tareas</a></li>
+                <!-- Botón de cerrar sesión en móvil -->
+                <li><button class="mobile-logout" onclick="window.location.href='#'">Cerrar Sesión 🚪</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contenedor principal de toda la página -->
+    <div class="container">
+
+        <!-- Encabezado del dashboard del usuario -->
+        <header>
+            <h1 id="mensajito">📚 Bienvenido</h1>
+
+            <!-- Datos del usuario -->
+            <div class="user-info">
+                <div>
+                    <div id="user-info-name" style="font-weight: 600; color: rgba(255, 255, 255, 0.5)">
+                        Estudiante
+                    </div>
+                    <div style="font-size: 13px; color: rgba(255, 255, 255, 0.5)">
+                        Ingeniería de Sistemas
+                    </div>
+                </div>
+
+                <!-- Avatar con iniciales -->
+                <div id="user-avatar-initials" class="user-avatar">ES</div>
+            </div>
+        </header>
+
+        <!-- Sección del dashboard -->
+        <div class="dashboard">
+
+            <!-- Tarjeta de estadísticas -->
+            <div class="stats-card">
+                <h2>Estadísticas</h2>
+
+                <!-- Cuadrícula con 4 estadísticas -->
+                <div class="stats-grid">
+
+                    <!-- Total de tareas -->
+                    <div class="stat-item">
+                        <span class="stat-number" id="totalTasks">0</span>
+                        <span class="stat-label">Total Tareas</span>
+                    </div>
+
+                    <!-- Tareas completadas -->
+                    <div class="stat-item">
+                        <span class="stat-number" id="completedTasks">0</span>
+                        <span class="stat-label">Completadas</span>
+                    </div>
+
+                    <!-- Tareas pendientes -->
+                    <div class="stat-item">
+                        <span class="stat-number" id="pendingTasks">0</span>
+                        <span class="stat-label">Pendientes</span>
+                    </div>
+
+                    <!-- Tareas programadas para hoy -->
+                    <div class="stat-item">
+                        <span class="stat-number" id="todayTasks">0</span>
+                        <span class="stat-label">Hoy</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta con todas las tareas -->
+            <div class="tasks-card" id="tareas">
+
+                <!-- Header de la tarjeta de tareas -->
+                <div class="card-header">
+                    <h2>Mis Tareas Académicas</h2>
+                    <button class="btn-crearTarea" onclick="openModal()">
+                        + Crear Tarea
+                    </button>
+                </div>
+
+                <!-- Input para buscar tareas -->
+                <div class="search-box">
+                    <input type="text" id="searchInput"
+                        placeholder="🔍 Buscar tareas por título, curso o descripción..." onkeyup="filterTasks()" />
+                </div>
+
+                <!-- Botones para filtrar tareas -->
+                <div class="filters">
+                    <button class="filter-btn active" onclick="filterByStatus('all')">
+                        Todas
+                    </button>
+                    <button class="filter-btn" onclick="filterByStatus('pending')">
+                        Pendientes
+                    </button>
+                    <button class="filter-btn" onclick="filterByStatus('completed')">
+                        Completadas
+                    </button>
+                    <button class="filter-btn" onclick="filterByPriority('high')">
+                        Alta Prioridad
+                    </button>
+                </div>
+
+                <!-- Aquí se renderizan dinámicamente las tareas -->
+                <div id="tasksList"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para crear o editar una tarea -->
+    <div id="taskModal" class="modal">
+        <div class="modal-content">
+
+            <h2 id="modalTitle">Crear Nueva Tarea</h2>
+
+            <!-- Formulario del modal -->
+            <form id="taskForm">
+
+                <div class="form-group">
+                    <label for="taskTitle">Título de la tarea *</label>
+                    <input type="text" id="taskTitle" required placeholder="Ej: Entrega de proyecto final" />
+                </div>
+
+                <div class="form-group">
+                    <label for="taskDescription">Descripción</label>
+                    <textarea id="taskDescription" placeholder="Describe los detalles de tu tarea..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="taskCourse">Curso *</label>
+                    <input type="text" id="taskCourse" required placeholder="Ej: Interacción Humano-Computadora" />
+                </div>
+
+                <div class="form-group">
+                    <label for="taskDate">Fecha de entrega *</label>
+                    <input type="date" id="taskDate" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="taskPriority">Prioridad *</label>
+                    <select id="taskPriority" required>
+                        <option value="low">Baja</option>
+                        <option value="medium" selected>Media</option>
+                        <option value="high">Alta</option>
+                    </select>
+                </div>
+
+                <!-- Botones del modal -->
+                <div class="modal-buttons">
+                    <button type="button" class="btn-cancelar" onclick="closeModal()">
+                        Cancelar
+                    </button>
+                    <button type="submit" class="btn-guardarTarea">Guardar Tarea</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <!-- Notificación flotante -->
+    <div id="notification" class="notification">
+        <span id="notificationText"></span>
+    </div>
+
+    <!-- Scripts principales -->
+    <script src="../js/navegacion.js"></script>
+    <script src="../js/tareas.js"></script>
+    <script src="../js/cerrarSesion.js"></script>
+</body>
+
+</html>

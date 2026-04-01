@@ -1,0 +1,356 @@
+/* --- Variables globales y reseteo ---
+   Aqui defino colores, sombras y valores que usare en todo el sitio */
+:root {
+  --color-secundario: #ffffff;
+  /* Blanco general */
+  --color-texto-oscuro: #2c3e50;
+  /* Gris oscuro para textos */
+  --color-accent-line: #3498db;
+  /* Linea decorativa azul */
+  --sombra-card: 0 10px 30px rgba(255, 255, 255, 0.5);
+  /* Sombra usada en tarjetas */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilo general del body con un fondo degradado */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--color-texto);
+  line-height: 1.6;
+
+  /* Fondo con degradado y efecto suave */
+  background: radial-gradient(circle at 30% 50%,
+      rgba(147, 197, 253, 0.9),
+      rgba(59, 130, 246, 0.4),
+      #e3f2fd 70%);
+  background-attachment: fixed;
+
+  min-height: 100vh;
+
+  /* Centro el contenido vertical y horizontalmente */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hidden {
+  display: none !important;
+  /* Clase para ocultar cosas */
+}
+
+/* --- Contenedor principal del login con dos columnas --- */
+#login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Caja grande dividida en panel izquierdo y derecho
+   Aqui aplico sombras y un efecto 3D suave */
+.split-login-container {
+  display: flex;
+  width: 100%;
+  max-width: 1100px;
+  height: 700px;
+  border-radius: 40px;
+  overflow: hidden;
+
+  /* Sombras externas e internas para dar profundidad */
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.25),
+    0 10px 20px rgba(0, 0, 0, 0.15),
+    inset 0 0 50px rgba(0, 0, 0, 0.05);
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Animacion cuando el usuario pasa el mouse encima */
+.split-login-container:hover {
+  transform: translateY(-20px) rotateX(4deg) rotateY(4deg);
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.15),
+    0 15px 30px rgba(100, 150, 255, 0.5),
+    inset 0 0 50px rgba(200, 200, 200, 0.5);
+}
+
+/* --- Panel izquierdo ---
+   Aqui va el logo grande y el texto de bienvenida */
+.left-panel {
+  flex: 1;
+  color: var(--color-texto-oscuro);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  padding: 40px;
+  text-align: left;
+
+  backdrop-filter: blur(20px);
+  /* Efecto de vidrio borroso */
+
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.left-panel .logo-large {
+  width: 250px;
+  margin-top: -100px;
+  margin-bottom: 50px;
+}
+
+/* Titulo grande del panel izquierdo */
+.left-panel h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.left-panel p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  opacity: 0.9;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* --- Panel derecho ---
+   Aqui va el formulario de login o registro */
+.right-panel {
+  flex: 1;
+  background-color: rgba(255, 255, 255, 0.6);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 40px;
+  text-align: center;
+  position: relative;
+}
+
+/* Titulo del formulario */
+.right-panel h3 {
+  font-size: 2rem;
+  color: var(--color-texto-oscuro);
+  margin-bottom: 10px;
+  position: relative;
+}
+
+/* Linea decorativa debajo del titulo */
+.right-panel h3::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: rgba(0, 51, 102, 0.5);
+  margin: 10px auto 30px auto;
+  border-radius: 2px;
+}
+
+/* Espaciado entre los inputs */
+.right-panel .input-group {
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+/* Estilos de las etiquetas dentro del formulario */
+.right-panel .input-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: var(--color-texto-oscuro);
+}
+
+/* Campos de texto */
+.right-panel .input-group input {
+  width: 100%;
+  padding: 14px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #f9f9f9;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Efecto cuando se hace focus en un input */
+.right-panel .input-group input:focus {
+  outline: none;
+  border-color: var(--color-accent-line);
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+  background-color: white;
+}
+
+/* --- Botones del formulario --- */
+.btn {
+  padding: 12px 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Boton principal con forma de pastilla */
+.btn-primary {
+  background-color: rgba(0, 51, 102, 0.5);
+  color: var(--color-secundario);
+  width: 100%;
+  padding: 15px 25px;
+  border-radius: 50px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.05);
+}
+
+/* --- Version movil ---
+   Aqui el diseño pasa de dos columnas a una sola */
+@media (max-width: 768px) {
+  .split-login-container {
+    flex-direction: column;
+    height: auto;
+    max-width: 400px;
+  }
+
+  .left-panel {
+    padding: 30px 20px;
+    text-align: center;
+    align-items: center;
+  }
+
+  .left-panel .logo-large {
+    display: none; /* Esto hace que el logo desaparezca por completo en móviles */
+  }
+  /* --------------------------- */
+
+  .left-panel h2 {
+    font-size: 2rem;
+    margin-top: 0; /* Quitamos margen extra para que el título suba un poco */
+  }
+
+  .left-panel p {
+    font-size: 1rem;
+    margin-bottom: 10px; /* Reducimos espacio para que no sea tan alto */
+  }
+
+  .right-panel {
+    padding: 30px 20px;
+  }
+
+  .right-panel h3 {
+    font-size: 1.8rem;
+  }
+}
+
+/* Contenedor general de la app luego de iniciar sesion */
+#app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Encabezado de la app */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: var(--color-secundario);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid #eee;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+}
+
+.logo-small {
+  width: 90px;
+  margin-right: 20px;
+}
+
+header h1 {
+  font-size: 1.5rem;
+  color: var(--color-texto-oscuro);
+}
+
+main {
+  flex-grow: 1;
+  max-width: 1200px;
+  width: 100%;
+  margin: 20px auto;
+  padding: 0 30px;
+}
+
+/* Pie de pagina de la app */
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+  color: #888;
+  background: var(--color-secundario);
+  margin-top: 20px;
+}
+
+/* Grilla de formularios */
+.card {
+  background: var(--color-secundario);
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: var(--sombra-card);
+  margin-bottom: 25px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+}
+
+/* En pantallas grandes, el formulario usa dos columnas */
+@media (min-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .span-2 {
+    grid-column: span 2;
+  }
+}
+
+/* Texto del enlace para cambiar entre login y registro */
+.toggle-link {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--color-texto-oscuro);
+  opacity: 0.8;
+}
+
+.toggle-link a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: text-decoration 0.2s;
+}
+
+.toggle-link a:hover {
+  text-decoration: underline;
+}

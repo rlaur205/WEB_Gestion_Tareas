@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Aquí le estoy diciendo al navegador que esta página está escrita en español -->
+
+<head>
+  <meta charset="UTF-8" />
+  <!-- Esto asegura que el navegador pueda mostrar correctamente acentos y caracteres especiales -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Esto hace que la página se vea bien en celulares ajustando el zoom y el tamaño -->
+
+  <title>Inicio de Sesión - UPN</title>
+  <!-- El título que va a aparecer en la pestaña del navegador -->
+
+  <link rel="stylesheet" href="../css/login.css" />
+  <!-- Aquí estoy conectando el archivo CSS que maneja el estilo del formulario de login -->
+
+  <link rel="stylesheet" href="../css/fondo.css" />
+  <!-- Este otro CSS controla la animación de fondo y los efectos visuales -->
+</head>
+
+<body>
+  <!-- Todo lo que el usuario ve en pantalla va dentro del body -->
+
+  <div class="hero-bg-animation">
+    <!-- Este contenedor maneja toda la animación visual del fondo -->
+
+    <div class="floating-shape shape-1"></div>
+    <div class="floating-shape shape-2"></div>
+    <!-- Estas son figuras que flotan en el fondo, son solo para decoración -->
+
+    <div class="geo-shape geo-1"></div>
+    <!-- Otra figura decorativa -->
+
+    <div class="particles">
+      <!-- Aquí estoy poniendo varias partículas que se mueven en el fondo -->
+
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <!-- Cada "particle" es un puntito animado que flota -->
+    </div>
+
+    <div class="hero-bg-animation">
+      <!-- Parece que se duplicó esta capa de animación, sirve para dar más efectos visuales -->
+
+      <div class="floating-shape shape-1"></div>
+      <div class="floating-shape shape-2"></div>
+      <div class="floating-shape shape-3"></div>
+      <!-- Más figuras flotantes como decoración -->
+
+      <div class="geo-shape geo-1"></div>
+      <div class="particles">
+        <!-- Esta capa está vacía pero sirve para la animación -->
+      </div>
+    </div>
+  </div>
+
+  <div id="login-container">
+    <!-- Este contenedor es donde realmente está el formulario de login -->
+
+    <div class="split-login-container">
+      <!-- Divido la pantalla en dos secciones: izquierda e derecha -->
+
+      <div class="left-panel">
+        <!-- Esta es la parte izquierda, más visual e informativa -->
+
+        <img src="../logo.png" alt="Logo UPN" class="logo-large" />
+        <!-- Muestro el logo de la universidad -->
+
+        <h2>Bienvenido a UPN Tareas</h2>
+        <!-- Un texto de bienvenida -->
+
+        <p>
+          Organiza tus tareas académicas de forma eficiente. Accede a tus
+          cursos, fechas de entrega y recursos importantes.
+        </p>
+        <!-- Un pequeño texto explicando para qué sirve la plataforma -->
+      </div>
+
+      <div class="right-panel">
+        <!-- Esta es la parte derecha donde está el formulario -->
+
+        <h3 id="form-title">Inicia Sesión</h3>
+        <!-- Título del formulario, este texto puede cambiar si pasas a modo registro -->
+
+        <form id="auth-form" autocomplete="off">
+          <!-- Este es el formulario; autocomplete "off" evita que el navegador sugiera datos guardados -->
+
+          <div class="input-group register-field" style="display: none;">
+            <!-- Este campo solo aparece cuando el usuario decide registrarse -->
+
+            <label for="nombre">Nombre</label>
+            <!-- Etiqueta del input -->
+
+            <input type="text" id="nombre" placeholder="Ej: Ana" autocomplete="off" />
+            <!-- Campo donde el usuario escribe su nombre -->
+          </div>
+
+          <div class="input-group register-field" style="display: none;">
+            <!-- Igual que arriba, este solo aparece para registro -->
+
+            <label for="apellido">Apellido</label>
+            <!-- Texto que indica qué debe escribir el usuario -->
+
+            <input type="text" id="apellido" placeholder="Ej: García" autocomplete="off" />
+            <!-- Input para el apellido -->
+          </div>
+
+          <div class="input-group">
+            <!-- Un grupo de entrada normal que sí siempre aparece -->
+
+            <label for="username">Correo Institucional</label>
+            <!-- Aquí le digo al usuario qué campo debe escribir -->
+
+            <input type="text" id="username" placeholder="Ej: N00123456@upn.pe" required autocomplete="off" />
+            <!-- Input del usuario, el 'required' obliga a escribirlo antes de enviar -->
+          </div>
+
+          <div class="input-group">
+            <!-- Grupo para la contraseña -->
+
+            <label for="password">Contraseña</label>
+            <!-- Etiqueta del input -->
+
+            <input type="password" id="password" placeholder="••••••••" required autocomplete="new-password" />
+            <!-- Campo de contraseña, oculta los caracteres y también es obligatorio -->
+          </div>
+
+          <button type"submit" class="btn btn-primary" id="submit-button">
+            <!-- Este botón envía el formulario, aunque hay un error aquí: falta el signo '=' después de "type" -->
+
+            Ingresar
+            <!-- Texto del botón -->
+          </button>
+        </form>
+
+        <p class="toggle-link">
+          <!-- Aquí muestro un texto que permite cambiar entre "Iniciar sesión" y "Registrarse" -->
+
+          ¿No tienes una cuenta? <a href="#" id="toggle-auth-link">Regístrate aquí</a>
+          <!-- Este enlace cambia el formulario al modo registro -->
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../js/login.js"></script>
+  <!-- Aquí conecto el archivo JavaScript que maneja la lógica del login, registro, validaciones, etc. -->
+</body>
+
+</html>

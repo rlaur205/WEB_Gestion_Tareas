@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <!-- Aqui le digo al navegador que tipo de documento es -->
+  <meta charset="UTF-8" />
+  <!-- Esto hace que la pagina se vea bien en telefonos -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Titulo que aparece en la pestaña -->
+  <title>Gestion de Tareas</title>
+  <!-- Aqui estoy trayendo los estilos del chat -->
+  <link rel="stylesheet" href="../css/mensajes.css" />
+  <!-- Y aqui los estilos del fondo animado -->
+  <link rel="stylesheet" href="../css/fondo.css" />
+</head>
+
+<body>
+  <!-- Esta parte es toda la animacion del fondo que flota y se mueve -->
+  <div class="hero-bg-animation">
+    <div class="floating-shape shape-1"></div>
+    <div class="floating-shape shape-2"></div>
+    <div class="floating-shape shape-3"></div>
+
+    <div class="geo-shape geo-1"></div>
+    <div class="geo-shape geo-2"></div>
+    <div class="particles">
+      <!-- Estas bolitas son como particulas flotando -->
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
+    </div>
+  </div>
+
+  <!-- Esta es la barra de navegacion de arriba -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <!-- Logo que te lleva a inicio -->
+      <a href="inicio.html" class="logo">
+        <div class="logo-icon">📚</div>
+        <div class="logo-text">Gestion de Tareas</div>
+      </a>
+
+      <!-- Enlaces de navegacion -->
+      <ul class="nav-links">
+        <li><a href="inicio.html">Inicio</a></li>
+        <li><a href="acerca.html">Acerca</a></li>
+        <li><a href="mensajes.html" class="active">Mensajes</a></li>
+        <li><a href="tareas.html">Tareas</a></li>
+        <!-- Boton de cerrar sesion (el icono lo carga el css) -->
+        <button id="logout-button" title="Cerrar Sesion"></button>
+      </ul>
+
+      <!-- Boton del menu para moviles -->
+      <div class="mobile-menu-btn" id="mobileMenuBtn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <!-- Menu que aparece cuando estas en telefono -->
+    <div class="mobile-nav" id="mobileNav">
+      <ul>
+        <li><a href="inicio.html">Inicio</a></li>
+        <li><a href="acerca.html">Acerca</a></li>
+        <li><a href="mensajes.html">Mensajes</a></li>
+        <li><a href="tareas.html">Tareas</a></li>
+        <li><button class="mobile-logout" onclick="window.location.href='#'">Cerrar Sesion 🚪</button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Contenedor principal donde va el chat -->
+  <div class="container">
+    <div class="chat-window">
+      <!-- Panel izquierdo, donde estan los chats/conversaciones -->
+      <div class="contacts-panel" id="contactsPanel">
+        <div class="contacts-header">
+          <h1>Chats</h1>
+        </div>
+        <!-- Aqui se llenaran los contactos con JS -->
+        <div class="contacts-list" id="contactsList"></div>
+      </div>
+
+      <!-- Panel derecho, la conversacion actual -->
+      <div class="conversation-panel" id="conversationPanel">
+
+        <!-- Parte de arriba, donde sale el nombre del contacto y su estado -->
+        <div class="conversation-header" id="conversationHeader">
+
+          <!-- Boton para volver atras en celulares -->
+          <button class="back-button" id="backButton">
+            <!-- Flechita dibujada con SVG -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 18l-6-6 6-6" />
+            </svg>
+          </button>
+
+          <!-- Foto o iniciales del contacto -->
+          <div class="contact-avatar" id="headerAvatar"></div>
+
+          <!-- Aqui se pone el nombre y el estado tipo "en linea" -->
+          <div class="contact-info">
+            <h2 id="headerName"></h2>
+            <p id="headerStatus"></p>
+          </div>
+        </div>
+
+        <!-- Aqui van apareciendo los mensajes del chat -->
+        <div class="messages-area" id="messagesArea"></div>
+
+        <!-- Parte de abajo donde escribes el mensaje -->
+        <div class="message-input-container">
+          <!-- Caja donde escribo lo que voy a mandar -->
+          <input type="text" id="messageInput" placeholder="Escribe un mensaje..." autocomplete="off" />
+          <!-- Boton de enviar -->
+          <button id="sendButton">Enviar</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts: primero la navegacion, luego el chat, luego cerrar sesion -->
+  <script src="../js/navegacion.js"></script>
+  <script src="../js/mensajes.js"></script>
+  <script src="../js/cerrarSesion.js"></script>
+</body>
+
+</html>
