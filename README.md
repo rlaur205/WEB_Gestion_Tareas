@@ -7,14 +7,12 @@
 
 Plataforma web dinámica diseñada para estudiantes de la **UPN**, que permite centralizar tareas, plazos y comunicación en una interfaz moderna y 100% responsiva. 
 
-> **Nota:** Este proyecto es puramente Frontend. Utiliza `localStorage` para la persistencia de datos, eliminando la necesidad de una base de datos externa.
-
 ---
 
 ## 🚀 Vista Previa del Proyecto
 
 ### 🔐 Acceso y Seguridad
-Sistema de autenticación dual (Login/Registro) con validación de credenciales institucionales.
+Sistema de autenticación dual con validación de credenciales institucionales.
 
 | Iniciar Sesión | Crear Cuenta |
 | :---: | :---: |
@@ -23,18 +21,18 @@ Sistema de autenticación dual (Login/Registro) con validación de credenciales 
 ---
 
 ### 📋 Gestión de Tareas (Core)
-Módulo completo de control académico con estadísticas en tiempo real, filtros de prioridad y buscador dinámico.
+Módulo de control académico con estadísticas, filtros y buscador dinámico.
 
 ![Panel General](img/img_tareas.png)
 
-| Registro de Tarea | Notificaciones y Filtros |
-| :---: | :---: |
-| ![Nueva Tarea](img/img_agregarTarea.png) | ![Filtros](img/img_notificacionTarea.png) |
+| Registro de Tarea | Notificaciones y Filtros | Tarea Guardada |
+| :---: | :---: | :---: |
+| ![Nueva Tarea](img/img_agregarTarea.png) | ![Filtros](img/img_notificacionTarea.png) | ![Confirmacion](img/img_tareaAgregada.png) |
 
 ---
 
 ### 💬 Comunicación y Perfil
-Interfaz de chat interactiva para coordinación grupal y panel de bienvenida personalizado.
+Interfaz de chat interactiva y panel de bienvenida personalizado.
 
 | Centro de Mensajería | Dashboard de Usuario |
 | :---: | :---: |
@@ -42,32 +40,34 @@ Interfaz de chat interactiva para coordinación grupal y panel de bienvenida per
 
 ---
 
+### 👨‍💻 Sobre el Proyecto y Equipo
+Detalles del desarrollo, objetivos alcanzados y el equipo detrás del MVP.
+
+| Stack Técnico y Metas | Equipo de Desarrollo |
+| :---: | :---: |
+| ![Stack](img/imc_acerca2.png) | ![Acerca](img/img_acerca.png) |
+
+---
+
 ## ✨ Características Destacadas
 
-* **CRUD de Tareas:** Crear, editar, completar y eliminar actividades con fechas límite bloqueadas para el pasado.
-* **Filtros Inteligentes:** Clasificación por estado (pendiente/completada) y niveles de prioridad (Alta, Media, Baja).
-* **Chat Simulado:** Interfaz de mensajería con estados "en línea" y respuestas automáticas programadas.
-* **Estadísticas en Vivo:** Contador automático de tareas pendientes, completadas y vencimientos del día.
-* **Diseño Responsive:** Menú hamburguesa y layouts adaptables para dispositivos móviles.
+* **CRUD de Tareas:** Crear, editar y eliminar actividades con persistencia local.
+* **Filtros Inteligentes:** Clasificación por estado y niveles de prioridad.
+* **Chat Simulado:** Interfaz de mensajería con respuestas automáticas.
+* **Estadísticas en Vivo:** Seguimiento de tareas pendientes y vencimientos.
+* **Diseño Responsive:** Layouts adaptables para cualquier dispositivo.
 
 ---
 
-## 🛠️ Stack Tecnológico
+## ⚙️ Instalación y Ejecución
 
-* **Estructura:** HTML5 Semántico.
-* **Estilos:** CSS3 (Animaciones de partículas, Flexbox y Grid).
-* **Lógica:** JavaScript ES6+ (Manipulación de DOM, Eventos).
-* **Almacenamiento:** API de LocalStorage del navegador.
+Al ser un proyecto de tecnologías puras, no requiere instalaciones:
 
----
+1. **Clona el repositorio:**
+   `git clone https://github.com/rlaur205/WEB_Gestion_Tareas.git`
 
-## ⚙️ Cómo Ejecutar
+2. **Ejecución:**
+   Abre el archivo `html/index.html` en tu navegador.
 
-Al ser un proyecto de tecnologías puras (Vanilla), no requiere instalaciones complejas:
-
-1.  **Clona el repositorio:**
-    `git clone https://github.com/rlaur205/WEB_Gestion_Tareas.git`
-2.  **Abre el archivo principal:**
-    Simplemente haz doble clic en `html/index.html` en tu navegador preferido.
-3.  **Vía Servidor Local (Opcional):**
-    `python -m http.server 8000` y visita `http://localhost:8000/html/index.html`
+3. **Servidor Local (Opcional):**
+   `python -m http.server 8000` -> Acceder a `http://localhost:8000/html/index.html`
